@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body>
+
+  <div class="container app-layout">
+
+    
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Menu</h2>
+      </div>
+
+      <div class="sidebar-search">
+        <input type="text" id="sidebar-search" placeholder="Search..." />
+      </div>
+
+      <div class="sidebar-section">
+        <p class="sidebar-title">Filter By Category</p>
+
+
+        <div class="filter-list">
+
+  <label class="filter-item">
+    <input type="checkbox" value="work">
+    <span>Work</span>
+  </label>
+
+  <label class="filter-item">
+    <input type="checkbox" value="personal">
+    <span>Personal</span>
+  </label>
+
+  <label class="filter-item">
+    <input type="checkbox" value="university">
+    <span>University</span>
+  </label>
+
+  <label class="filter-item">
+    <input type="checkbox" value="other">
+    <span>Other</span>
+  </label>
+
+</div>
+        
+      </div>
+
+    </aside>
+
+    
+    <main class="main-content">
+
+      <div class="todo-app">
+
+        <h1>
+          To Do List
+          <img src="images/icon.png" alt="To-do icon" />
+        </h1>
+
+        
+        <div class="row">
+          <input type="text" id="input-box" placeholder="Add your tasks" />
+
+          <select id="day-select">
+            <option value="mon">Monday</option>
+            <option value="tue">Tuesday</option>
+            <option value="wed">Wednesday</option>
+            <option value="thu">Thursday</option>
+            <option value="fri">Friday</option>
+            <option value="sat">Saturday</option>
+            <option value="sun">Sunday</option>
+          </select>
+
+
+          <select id="category-select">
+            <option value="work">Work</option>
+            <option value="personal">Personal</option>
+            <option value="university">University</option>
+            <option value="other">Other</option>
+
+          </select>
+
+          <button id="addBtn">Add</button>
+        </div>
+
+        
+        <div class="week">
+          <div class="day" data-day="mon">
+            <h3>Monday</h3>
+            <ul class="day-list" id="list-mon"></ul>
+          </div>
+
+          <div class="day" data-day="tue">
+            <h3>Tuesday</h3>
+            <ul class="day-list" id="list-tue"></ul>
+          </div>
+
+          <div class="day" data-day="wed">
+            <h3>Wednesday</h3>
+            <ul class="day-list" id="list-wed"></ul>
+          </div>
+
+          <div class="day" data-day="thu">
+            <h3>Thursday</h3>
+            <ul class="day-list" id="list-thu"></ul>
+          </div>
+
+          <div class="day" data-day="fri">
+            <h3>Friday</h3>
+            <ul class="day-list" id="list-fri"></ul>
+          </div>
+
+          <div class="day" data-day="sat">
+            <h3>Saturday</h3>
+            <ul class="day-list" id="list-sat"></ul>
+          </div>
+
+          <div class="day" data-day="sun">
+            <h3>Sunday</h3>
+            <ul class="day-list" id="list-sun"></ul>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+  </div
+
+  
+  <script src="tasks.js"></script>
+ 
+
+</body>
+</html>

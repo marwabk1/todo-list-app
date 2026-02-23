@@ -1,0 +1,449 @@
+*{
+  margin:0;
+  padding:0;
+  font-family:'Poppins',sans-serif;
+  box-sizing:border-box; 
+}
+
+ /* TOP NAV (theme button)*/
+   
+.top-nav{
+  background: #0f9e99;
+  width:100%;
+  padding: 16px 24px;
+  display:flex;
+  justify-content:flex-end;
+ 
+}
+
+#theme-switcher-button {
+  background: hsl(178, 82%, 30%);
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  
+}
+
+/* container (full app) */
+.container{
+  min-height: 100vh;
+  padding: 24px;
+  background: #0f9e99;
+  transition: background 0.4s ease;
+  
+  
+}
+
+/* two-column layout */
+.app-layout{
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+/*SIDEBAR*/
+.sidebar{
+  background: rgba(239,233,224,0.92);
+  border: 3px solid #28443f;
+  border-radius: 14px;
+  padding: 16px;
+  height: calc(100vh - 24px * 2); 
+  overflow: auto;
+   position: sticky;
+  top: 24px;
+}
+
+.sidebar-header h2{
+  font-size: 18px;
+  color:rgba(0,39,98,0.7);
+  margin-bottom: 12px;
+}
+
+.sidebar-search input{
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.7);
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.sidebar-title{
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(0,39,98,0.7);
+  margin: 12px 0 8px;
+  letter-spacing: 0.08em;
+}
+
+.filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+
+.filter-item input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #0f9e99;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+
+.filter-item input:checked {
+  background-color: #0f9e99;
+}
+
+
+.filter-item input:checked::after {
+  content: "✓";
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: -2px;
+  left: 2px;
+}
+
+.filter-item:hover span {
+  color: #0f9e99;
+}
+
+/* =========================
+   MAIN CONTENT WRAP
+   ========================= */
+.main-content{
+  min-width: 0; /* prevents grid overflow */
+}
+
+/* =========================
+   TODO APP CARD
+   ========================= */
+.todo-app {
+  background: rgba(239,233,224,0.92);
+  width: 100%;
+  max-width: 860px; /* more room now that sidebar exists */
+  padding: 40px;
+  border-radius: 14px;
+  border: 3px solid #28443f; 
+}
+
+.todo-app h1{
+  color:#002762;
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.todo-app h1 img{
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* input row */
+.row{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-evenly;
+  background: #edeef0;
+  border-radius:30px;
+  padding:15px;
+  margin-bottom:25px;
+  gap:10px;
+}
+
+#input-box {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.row #day-select,#category-select{
+  height:30px;
+  padding:0 18px;
+  border-radius:30px;
+  border: 2px solid black;
+  background-color: #edeef0;
+  font-size: 15px;
+  color: #333;
+  cursor: pointer;
+}
+
+button{
+  border:none;
+  outline:none;
+  padding:16px 50px;
+  background:#0f9e99;
+  color:#fff;
+  font-size:17px;
+  cursor:pointer;
+  border-radius:400px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+button:hover{
+ transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  background: hsla(178, 82%, 34%, 70%);
+}
+
+/* =========================
+   WEEK GRID
+   ========================= */
+.week {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+
+/* EACH DAY BOX */
+.day{
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 10px;
+  min-height: 220px;
+  color: #002762;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* sticky note colors */
+.day[data-day="mon"]{ background: #FFF3B0; }
+.day[data-day="tue"]{ background: #FFD6E0; }
+.day[data-day="wed"]{ background: #CDEAC0; }
+.day[data-day="thu"]{ background: #CDE7FF; }
+.day[data-day="fri"]{ background: #E8D7FF; }
+.day[data-day="sat"]{ background: #FFE3C4; }
+.day[data-day="sun"]{ background: #D7F5F5; }
+
+
+.day:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 16px 26px rgba(0,0,0,0.14);
+}
+
+/* DAY TITLE */
+.day h3{
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #002762;
+}
+
+/* LIST INSIDE DAY */
+.day-list{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+}
+
+/* 
+   TASK ITEM + CHECKBOX
+  */
+.day-list li{
+  position: relative;
+  list-style: none;
+  padding: 10px 28px 10px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.55);
+  overflow-wrap: anywhere;
+
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.day-list li:hover{
+  background: rgba(0,0,0,0.04);
+  transform: translateY(-2px);
+}
+
+.task-text{
+  flex: 1;
+}
+
+.day-list li .delete{
+  margin-left:auto;
+  font-size: 18px;
+  cursor:pointer;
+  line-height: 1;
+}
+
+.day-list li.checked{
+  color:#555;
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+/* =========================
+   CUSTOM CHECKBOX
+   ========================= */
+.checkbox-wrapper * {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.checkbox-wrapper{
+  flex-shrink: 0;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-wrapper label {
+  --size: 22px;
+  --shadow: calc(var(--size) * .07) calc(var(--size) * .1);
+  position: relative;
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  margin: 0;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  border-radius: 50%;
+  box-shadow: 0 var(--shadow) rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: 0.2s ease transform, 0.2s ease background-color, 0.2s ease box-shadow;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.checkbox-wrapper label:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: calc(var(--size) * .7);
+  height: calc(var(--size) * .7);
+  margin: 0 auto;
+  background-color: #fff;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  box-shadow: inset 0 var(--shadow) rgba(0,0,0,0.12);
+  transition: 0.2s ease width, 0.2s ease height;
+}
+
+.checkbox-wrapper label:hover:before {
+  width: calc(var(--size) * .55);
+  height: calc(var(--size) * .55);
+}
+
+.checkbox-wrapper label:active {
+  transform: scale(0.9);
+}
+
+.checkbox-wrapper .tick_mark {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: calc(var(--size) * -.05);
+  width: calc(var(--size) * .6);
+  height: calc(var(--size) * .6);
+  margin: 0 auto;
+  margin-left: calc(var(--size) * .14);
+  transform: rotateZ(-40deg);
+}
+
+.checkbox-wrapper .tick_mark:before,
+.checkbox-wrapper .tick_mark:after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  border-radius: 2px;
+  opacity: 0;
+  transition: 0.2s ease transform, 0.2s ease opacity;
+}
+
+.checkbox-wrapper .tick_mark:before {
+  left: 0;
+  bottom: 0;
+  width: calc(var(--size) * .1);
+  height: calc(var(--size) * .3);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
+  transform: translateY(calc(var(--size) * -.68));
+}
+
+.checkbox-wrapper .tick_mark:after {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(var(--size) * .1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
+  transform: translateX(calc(var(--size) * .78));
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + label {
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.22);
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + label:before {
+  width: 0;
+  height: 0;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + label .tick_mark:before,
+.checkbox-wrapper input[type="checkbox"]:checked + label .tick_mark:after {
+  transform: translate(0);
+  opacity: 1;
+}
+
+/* =========================
+   THEMES (ONLY container background changes)
+   ========================= */
+body.theme-light .container {
+  background: linear-gradient(135deg, #9be3df, #0f9e99);
+}
+
+body.theme-dark .container {
+  background: linear-gradient(135deg, #051a19, #0f1f1e);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 980px){
+  .app-layout{
+    grid-template-columns: 1fr;
+  }
+  .sidebar{
+    height: auto;
+  }
+  .todo-app{
+    max-width: 100%;
+  }
+}

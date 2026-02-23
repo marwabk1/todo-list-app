@@ -1,7 +1,10 @@
 const inputBox=document.getElementById("input-box");
 const addBtn=document.getElementById("addBtn");
 const daySelect=document.getElementById("day-select");
-const categorySelect=document.getElementById("category-select");    
+const categorySelect=document.getElementById("category-select");
+
+const searchInput=document.getElementById("sidebar-search");
+
 
 const dayLists={
     mon: document.getElementById("list-mon"),
@@ -66,3 +69,20 @@ document.addEventListener("click", function (e) {
   }
 });
 
+searchInput.addEventListener("input", function () {
+  const query = searchInput.value.trim().toLowerCase();
+
+  
+  const allTasks = document.querySelectorAll(".day-list li");
+
+  allTasks.forEach((li) => {
+    const textSpan = li.querySelector(".task-text");
+    const taskText = textSpan ? textSpan.textContent.toLowerCase() : "";
+
+    if (taskText.includes(query)) {
+      li.style.display = "flex";   
+    } else {
+      li.style.display = "none";   
+    }
+  });
+});

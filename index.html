@@ -90,7 +90,22 @@
           <button id="addBtn">Add</button>
         </div>
 
-        
+        <div class="week-toolbar">
+  <button class="week-btn" id="prevWeekBtn">❮   </button>
+
+  <div class="week-info">
+    <p class="week-label">Week</p>
+    <h2 class="week-range" id="weekRangeText">Feb 23 – Mar 1</h2>
+  </div>
+
+  <button class="week-btn" id="nextWeekBtn"> ❯</button>
+
+  <div class="week-picker">
+    <label for="weekDate" class="week-picker-label">Go to date</label>
+    <input type="date" id="weekDate" />
+  </div>
+</div>
+
         <div class="week">
           <div class="day" data-day="mon">
             <h3>Monday</h3>
@@ -132,7 +147,7 @@
     </main>
 
   </div>
-  </div
+  
 
   
   <script src="tasks.js"></script>
